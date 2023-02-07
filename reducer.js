@@ -1,17 +1,30 @@
-// 일반적인 앱은 상태 변경과 관련된 로직이 굉장히 많다. 상태도 많고 하기 때문에 따로 분리한다.
+import {
+  ASYNC_INCREASE_COUNTER,
+  DECREASE_COUNTER,
+  INCREASE_COUNTER,
+  SET_COUNTER,
+} from "./action-type.js";
 
-import * as ActionType from "./action-type.js";
-
-const InitializeState = { count: 0 };
+const InitializeState = {
+  message: "app store",
+};
 
 export function reducer(state = InitializeState, action) {
   switch (action.type) {
-    case ActionType.INCREASE:
-      return { ...state, count: state.count + 1 };
-    case ActionType.DECREASE:
-      return { ...state, count: state.count - 1 };
-    case ActionType.RESET:
-      return { ...state, count: 0 };
+    case INCREASE_COUNTER:
+      return {
+        ...state,
+        counter: state.counter === undefined ? 1 : state.counter + 1,
+      };
+    case ASYNC_INCREASE_COUNTER:
+      return { ...state, counter: state.counter + 1 };
+    case DECREASE_COUNTER:
+      return {
+        ...state,
+        counter: state.counter === undefined ? 0 : state.counter - 1,
+      };
+    case SET_COUNTER:
+      return { ...state, counter: action.payload };
     default:
       return { ...state };
   }

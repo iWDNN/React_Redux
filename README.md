@@ -160,6 +160,7 @@
     <img src="https://facebook.github.io/flux/img/overview/flux-simple-f8-diagram-with-client-action-1300w.png" />
 
   - flux 아키텍쳐의 초기모델은 번잡하고 불편하여 사용하지 않다가 flux 아키텍쳐를 깔끔하게 구현한 redux가 나오면서 주도적인 프레임워크가 됐다.
+  - 완전히 동기적인 코드
 
 - 미들웨어
   - redux가 제공하는 store의 action 무언가를 하기 위한 action을 던져주고 그 action에 맞춰서 상태가 업데이트 되는 이 흐름 안에서 작동할 수 있는 아키텍쳐를 마련해야겠다. 그래서 채용한 아키텍쳐가 미들웨어이다.

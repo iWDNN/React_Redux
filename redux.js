@@ -1,7 +1,4 @@
-export const actionCreator = (type) => (payload) => ({
-  type,
-  payload,
-});
+export const actionCreator = (type) => (payload) => ({ type, payload });
 
 export function createStore(reducer) {
   let state;
@@ -15,9 +12,9 @@ export function createStore(reducer) {
   function subscribe(handler) {
     handlers.push(handler);
   }
+
   function getState() {
     return state;
   }
-
-  return { dispatch, getState, subscribe };
+  return { dispatch, subscribe, getState };
 }
