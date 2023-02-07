@@ -9,7 +9,7 @@ const InitializeState = {
   message: "app store",
 };
 
-export function reducer(state = InitializeState, action) {
+export default function reducer(state = InitializeState, action) {
   switch (action.type) {
     case INCREASE_COUNTER:
       return {
@@ -17,7 +17,14 @@ export function reducer(state = InitializeState, action) {
         counter: state.counter === undefined ? 1 : state.counter + 1,
       };
     case ASYNC_INCREASE_COUNTER:
-      return { ...state, counter: state.counter + 1 };
+      fetch(action.payload.url)
+        .then((res) => res.json())
+        .then((result) => {
+          return { ...state };
+        })
+        .catch((err) => {
+          return { ...state };
+        });
     case DECREASE_COUNTER:
       return {
         ...state,
