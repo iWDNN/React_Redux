@@ -6,7 +6,7 @@ import {
 } from "./action-type.js";
 import { actionCreator } from "./redux.js";
 
+export const set_counter = actionCreator(SET_COUNTER);
 export const increase = actionCreator(INCREASE_COUNTER);
-export const asyncIncrease = actionCreator(ASYNC_INCREASE_COUNTER);
+export const async_increase = actionCreator(ASYNC_INCREASE_COUNTER);
 export const decrease = actionCreator(DECREASE_COUNTER);
-export const setCounter = actionCreator(SET_COUNTER);
