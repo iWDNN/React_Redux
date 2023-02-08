@@ -1,8 +1,6 @@
 export const logger = (store) => (next) => (action) => {
-  const currentState = store.getState();
-
-  console.groupCollapsed("action logger=>", action.type);
-  console.log("current state", currentState);
+  console.groupCollapsed("action type =>", action.type);
+  console.log("current state", store.getState());
   console.log("action payload", action.payload);
   console.groupEnd();
 
